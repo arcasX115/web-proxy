@@ -2,7 +2,7 @@
 using namespace std;
 
 int total_books;
-int book_id;
+int book_id[100];
 
 void add_book(int book);
 void delete_book(int book);
@@ -11,13 +11,13 @@ int count_books();
 
 int main()
 {
-    int book_id, option, book, book_code;
+    int option, book, book_code;
     cout << "enter the number of books" << endl;
     cin >> total_books;
     cout << "enter the books ids" << endl;
     for (int i = 0; i < total_books; i++)
     {
-        cin >> book_id;
+        cin >> book_id[i];
     }
     cout << "enter an option" << endl;
     cout << "1.Add a book" << endl;
@@ -87,14 +87,14 @@ void delete_book(int book)
 }
 bool look(int book_code)
 {
-    if (book_code == book_id)
+    for (int i = 0; i < total_books; i++)
     {
-        return true;
+        if (book_code == book_id[i])
+        {
+            return true;
+        }
     }
-    else
-    {
-        return false;
-    }
+    return false;
 }
 int count_books()
 {
