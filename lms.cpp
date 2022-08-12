@@ -8,6 +8,7 @@ void add_book(int book);
 void delete_book(int book);
 bool look(int book_code);
 int count_books();
+void file(char *x);
 
 int main()
 {
@@ -46,6 +47,7 @@ int main()
     {
         cout << "Enter the number of books you would like to add:" << endl;
         cin >> book;
+        file(book_id);
         add_book(book);
     }
     else if (option == 2)
@@ -99,4 +101,16 @@ bool look(int book_code)
 int count_books()
 {
     return total_books;
+}
+void file(char *x)
+{
+    FILE *librecords;
+
+    librecords = fopen("library.txt", "w");
+
+    if (librecords != NULL)
+    {
+        fputs(x, librecords);
+        fclose(librecords);
+    }
 }
