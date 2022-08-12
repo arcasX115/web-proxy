@@ -11,12 +11,9 @@ int count_books();
 
 int main()
 {
-
-    // cscbbbhb
     int option, book, book_code;
     cout << "enter the number of books" << endl;
     cin >> total_books;
-    cout << "hello github" << endl;
     cout << "enter the books ids" << endl;
     for (int i = 0; i < total_books; i++)
     {
