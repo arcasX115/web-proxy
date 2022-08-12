@@ -12,7 +12,6 @@ int count_books();
 int main()
 {
     int option, book, book_code;
-    cout << "hello world" << endl;
     cout << "enter the number of books" << endl;
     cin >> total_books;
     cout << "enter the books ids" << endl;
