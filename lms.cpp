@@ -10,7 +10,7 @@ void add_book(int book, int *new_books_id);
 void delete_book(int book, int *delete_book_id);
 bool look(int book_code);
 int count_books();
-void file(int x);
+void file(char *x);
 
 int main()
 {
@@ -108,11 +108,18 @@ void add_book(int book, int *new_books_id)
 void delete_book(int book, int *delete_book_id)
 {
     total_books = total_books - book;
-    cout << total_books << endl;
     cout << "total number of books are:" << total_books << endl;
     cout << "The book ids are" << endl;
     for (int i = 0; i < total_books; i++)
     {
+        if (total_books_ids[i] == delete_book_id[i])
+        {
+            total_books_ids[i] = total_books_ids[i + 1];
+        }
+        else
+        {
+            total_books_ids[i] = total_books_ids[i];
+        }
     }
     for (int k = 0; k < total_books; k++)
     {
@@ -134,7 +141,7 @@ int count_books()
 {
     return total_books;
 }
-void file(int x)
+void file(char *x)
 {
     FILE *librecords;
 
@@ -142,7 +149,7 @@ void file(int x)
 
     if (librecords != NULL)
     {
-        fgets(x, librecords);
+        fputs(x, librecords);
         fclose(librecords);
     }
 }
