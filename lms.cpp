@@ -10,6 +10,7 @@ void add_book(int book, int *new_books_id);
 void delete_book(int book, int *delete_book_id);
 bool look(int book_code);
 int count_books();
+void file(int x);
 
 int main()
 {
@@ -132,4 +133,16 @@ bool look(int book_code)
 int count_books()
 {
     return total_books;
+}
+void file(int x)
+{
+    FILE *librecords;
+
+    librecords = fopen("library.txt", "w");
+
+    if (librecords != NULL)
+    {
+        fgets(x, librecords);
+        fclose(librecords);
+    }
 }
